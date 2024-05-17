@@ -20,16 +20,25 @@
   height: 50%;
 }
 .board > button {
+  height: 120px;
   cursor: pointer;
+  font-size: xx-large;
+}
+.board>button:disabled{
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 .status {
   width: 50%;
-  padding: 0px 15px;
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+
+
 .status > button {
   height: 40px;
   padding: 10px;

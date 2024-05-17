@@ -1,17 +1,23 @@
-import { useState } from "react";
+import useGame from "./hooks/useGame"
+
 
 const Game = () => {
-    const initialboard =  ()=> Array(9).fill(null)
 
-    const [board, setBoard] = useState(initialboard())
-   
+  const { board, handleClick, calculateWinner, getStatusMsg, resetGame } = useGame();
 
   return (
-    <div className="board">
-      {board.map((_,index)=>(
-        <button key={index} onClick={()=>{console.log(index)}}>{index}</button>
-      ))}
-    </div>
+    <>
+      <h1>Tic Tac Toe</h1>
+      <div className="status">
+        <h2>{getStatusMsg()}</h2>
+        <button onClick={() =>resetGame()}>Reset</button>
+      </div>
+      <div className="board">
+        {board.map((b, index) => (
+          <button disabled ={b} key={index} onClick={() => { handleClick(index) }}>{b}</button>
+        ))}
+      </div>
+    </>
   )
 }
 
